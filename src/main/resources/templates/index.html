@@ -11,6 +11,29 @@
     <h2>Rest API Demo</h2>
     <p>This page is a demonstration of a Rest API made using SpringBoot, Java and Maven.</p>
     <p>It calls a Rest API to retrieve the data from the database.</p>
+    <p>Complete the form to add a book to the database. The list will refresh with your new entry.
+    </p>
+</div>
+<div class="container">
+    <form action="/" method="post">
+        <p th:if="${error != null}" th:text="${error}" class="error"/>
+
+        <div class="row">
+            <div class="labelCol"><label for="title">Title:</label></div>
+            <div class="fieldCol"><input type="text" name="title" id="title" placeholder="Book Title"></div>
+        </div>
+        <div class="row">
+            <div class="labelCol"><label for="author">Author: </label></div>
+            <div class="fieldCol"><input type="text" name="author" id="author" placeholder="Author's name"></div>
+        </div>
+        <div class="row">
+            <div class="labelCol"><label for="blurb">Blurb: </label></div>
+            <div class="fieldCol"><textarea name="blurb" id="blurb" placeholder="An optional blurb"></textarea></div>
+        </div>
+        <div class="row"><div class="fieldCol"><input type="submit" value="Add Book"></div></div>
+    </form>
+</div>
+<div>
     <table>
         <thead><tr>
             <th>ID</th>
