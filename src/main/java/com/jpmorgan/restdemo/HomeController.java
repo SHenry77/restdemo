@@ -1,18 +1,24 @@
 package com.jpmorgan.restdemo;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
 public class HomeController {
 
+    @Autowired
+    private final BookService bookService;
+
+    HomeController(BookService bookService){
+        this.bookService = bookService;
+    }
 
     @GetMapping("/")
-    public String listAll(Model model){
-        return "index";
+    public ModelAndView listAll(ModelAndView modelAndView){
+        modelAndView.setViewName("index");
+        modelAndView.addObject("books", bookService.findAll());
+        return modelAndView;
     }
 }
