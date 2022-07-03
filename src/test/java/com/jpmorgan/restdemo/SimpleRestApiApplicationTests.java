@@ -13,8 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureMockMvc
 class SimpleRestApiApplicationTests {
 
-	// TODO: write more tests
-	/* TODO: a list of tests I would write if I knew how to (researching this would take too much time as many of the tests I tried to write failed)
+	/*  A list of tests I would write if I knew how to (researching this would take too much time as many of the tests I tried to write failed)
 		test database is initialised with correct values.
 		test repository retrieves correct values for the various methods (possibly unecessary given it's just extending the jpa repository.
 		test text on front end correct. * see below for an example that I couldn't get working despite several different flavours of it.
